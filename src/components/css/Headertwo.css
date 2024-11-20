@@ -1,0 +1,261 @@
+*{
+    font-family: sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(to right, #4C428C, #2C2A59); /* Degradê do roxo claro para o roxo escuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Alinha verticalmente todos os itens no header */
+}
+
+.header-logo {
+    position: absolute;
+    left: 20px; /* Mantém a imagem no canto esquerdo */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    width: 157px;
+    height: 99px; /* Ajuste o tamanho conforme necessário */
+}
+
+.header-content {
+    margin: 0 auto;
+    display: flex; /* Flexbox para o conteúdo */
+    justify-content: center;
+    align-items: center; /* Garante que o conteúdo também seja centralizado verticalmente */
+    flex: 1;
+}
+
+.header-buttons {
+    font-size: medium;
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+    padding-right: 20px;
+    margin-left: auto; /* Mantém os botões à direita */
+}
+
+.header-button {
+    position: relative; /* Necessário para posicionar o ::after */
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #9f6243; /* Cor da barra */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.header-button:hover::after,
+.header-button:focus::after {
+    width: 100%; /* Expande a barra para 100% da largura do botão */
+}
+
+.header-button:hover,
+.header-button:focus {
+    color: #9f6243; /* Muda a cor do texto ao passar o mouse ou ao focar no botão */
+}
+
+.client-button{
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: transparent;
+    border-color: #D97C2B;
+    color: #D97C2B;
+}
+.client-button:hover{
+    background-color:#ff9b4441;
+}
+
+.cotacao-button{
+    cursor: pointer;
+    background-color: #D97C2B; 
+    color: #ffffff;
+    border-color: transparent;
+    border-radius: 10px;
+}
+.cotacao-button:hover{
+    background-color: #d97c2b91; 
+}
+
+.nav-bar {
+    position: fixed; /* Faz a barra de navegação ficar fixa */
+    top: 92px; /* Altera esse valor para corresponder à altura do header */
+    left: 0;
+    width: 100%; /* Garante que a barra cubra toda a largura da página */
+    height: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #4C428C; /* Fundo da barra de navegação */
+    gap: 10px;
+    z-index: 999; /* Garante que a barra apareça acima de outros elementos */
+}
+
+/* Código para retirar as setinhas desse input */
+.nav-input::-webkit-inner-spin-button{
+    -webkit-appearance: none;-webkit-appearance: none; 
+}
+/* ------------------------------------------- */
+.nav-input {
+    margin-left: 44.44px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 200px;
+    color: black;
+}
+
+.send-button {
+    color: #fff;
+    background-color: #D97C2B;
+    border-radius: 10px;
+    border-color: transparent;
+    margin-right: 44.44px;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    display: flex; /* Usa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza o texto */
+}
+
+.send-button:hover {
+    background-color: #ff9b44;
+}
+
+.custom-icon {
+    font-size: 0px; /* Altera o tamanho para 0px */
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    position: relative; /* Faz com que o menu seja posicionado relativo ao ícone */
+    display: inline-block;
+    color: white;
+}
+.custom-icon:hover
+{
+    color: #D97C2B;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 90px; /* Ajuste conforme necessário */
+    right: 180px;
+    background-color: #4C428C;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; /* Garante que o menu fique por cima de outros elementos */
+}
+
+.hamburger-item {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.hamburger-item:hover {
+    background-color: #2C2A59;
+}
+
+/* ADICIONANDO MEDIA QUERIES */
+
+@media (max-width: 1390px) {
+    .header-buttons{
+        gap: 10px;
+        font-size: small;
+    }
+    .custom-icon {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1190px) {
+    .custom-icon{
+        font-size: 24px !important;
+    }
+    .hamburger-menu {
+        position: fixed !important; /* ou 'absolute' se for dentro de um contêiner */
+        top: 70px !important; /* ou ajuste conforme necessário */
+        right: 0 !important; /* garante que o menu fique no lado direito */
+        margin-right: 0 !important;
+    }
+    .nav-input {
+        margin-left: 44.44px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        width: 150px;
+        color: black;
+    }
+    .header-button{
+        display: none;
+    }
+    .client-button{
+        display: none;
+    }
+    .cotacao-button{
+        display: none;
+    }
+    .header-content p{
+        display: none;
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    .nav-input {
+        margin-left: 22.22px;
+        width: 100px;
+    }
+    
+}
+
+@media (max-width: 650px) {
+    .hamburger-menu{
+        background-color: #4c428ca6;
+    }
+    .header-logo{
+        display: none;
+    }
+    .nav-bar{
+        display: none;
+    }
+    .header {
+        background: transparent; /* Deixa o fundo transparente */
+    }
+    .custom-icon{
+        color: black;
+    }
+}

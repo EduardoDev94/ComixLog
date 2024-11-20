@@ -1,0 +1,64 @@
+
+.page-container {
+    display: flex;
+}
+
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+}
+
+.container-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+.p-msg{
+     color: red;;
+     font-weight: 600;
+}
+
+.pedido{
+    border-width: 1px; 
+    border-style: solid; 
+    border-color:  rgb(0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 2px 4px rgb(32, 32, 32); 
+    margin-top: 10px;
+}
+
+.pedido-acoes{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.pedido-info{
+    color: black;
+    margin-left: 20px;
+}
+
+.btn-editar{
+    margin-right: 60px;
+    background-color: #12ca12;
+}
+.btn-excluir{
+    background-color: #cf3d10;
+}
+.btn-ver-mais{
+    margin-top: 40px;
+    background-color: #242340;
+}

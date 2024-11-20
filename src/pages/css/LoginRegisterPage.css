@@ -1,0 +1,126 @@
+/* Estilo original */
+.navigate-button{
+    margin-top: 350px;
+    margin-left: 400px;
+}
+.login-register-container {
+    text-align: center;
+    padding: 20px;
+}
+.login-container {
+    align-items: center;
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
+}
+ 
+.form-wrapper {
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #4C428C;
+    padding: 40px;
+}
+ 
+.h3-Register {
+    color:#FFA500;
+}
+ 
+.label-Register {
+    color: #000;
+}
+ 
+.inputs-Register {
+    background-color: white;
+    color: #000;
+}
+ 
+.login-form, .register-form {
+    background-color:#D9D7CC;
+    padding: 20px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 4px;
+    border-color: #4C428C;
+    width: 300px;
+    color: white;
+}
+ 
+.input-group {
+    margin-bottom: 15px;
+}
+ 
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+ 
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+ 
+.btn-login, .btn-register {
+    background-color: #FFA500;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    margin-top: 10px;
+}
+ 
+.forgot-password {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+    margin-bottom: 10px;
+}
+ 
+.switch-form {
+    margin-top: 20px;
+    font-size: 12px;
+}
+ 
+.switch-form span {
+    color: #FFA500;
+    cursor: pointer;
+}
+ 
+/* Media Query para telas menores que 820px */
+@media screen and (max-width: 820px) {
+    .forms-container {
+        margin-left: -40px;
+        padding: 20px;
+    }
+}
+ 
+/* Nova media query para telas com largura de até 620px */
+@media screen and (max-width: 620px) {
+    .forms-container {
+        display: block; /* Muda para bloco, alinhando os formulários verticalmente */
+        margin-left: 0;
+        gap: 0;
+        margin-bottom: 50px;
+    }
+ 
+    .form-wrapper {
+        padding-left: 5px;
+        padding: 20px;
+        margin: 20px auto; /* Centraliza os formulários na tela */
+        width: 90%; /* Reduz a largura para caber melhor em telas pequenas */
+    }
+ 
+    .cadastro{
+        padding-left: 5px;
+        padding: 20px;
+        margin: 20px auto; /* Centraliza os formulários na tela */
+        width: 90%; /* Reduz a largura para caber melhor em telas pequenas */
+    }
+}

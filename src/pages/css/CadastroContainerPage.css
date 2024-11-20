@@ -1,0 +1,97 @@
+/* No seu arquivo CSS */
+.custom-title {
+    margin-top: 0; /* Remove a margem inferior */
+}
+* {
+    font-family: sans-serif;
+}
+/* PedidoForm.css */
+.label-gray {
+    color: gray; /* Ou qualquer tonalidade de cinza que preferir */
+}
+ 
+.textoTitulo{
+    font-size: x-large;
+
+}
+ 
+.p-text{
+    font-size: medium;
+    color: gray;
+}
+ 
+/* General styles for the form inputs */
+.form-control {
+    color: black;
+    background-color: white;
+    border: 1px solid #dcdcdc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the inputs */
+    font-size: 16px; /* Adjust the font size */
+    width: 100%; /* Make inputs take full width of their container */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+.form-check-input{
+    margin-left: 20px;
+}
+.form-check-label{
+    margin-left: 5px;
+    color: black;
+}
+ 
+/* Style for the labels */
+.form-label {
+    font-weight: bold;
+    color: #555; /* Darker gray for labels */
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+}
+ 
+/* Styling the orange button */
+.btn-primary {
+    background-color: #FFA500; /* Use orange as the background */
+    border: none; /* Remove border */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+ 
+.btn-primary:hover {
+    background-color: #4C428C !important;
+}
+ 
+/* Styling the outline button */
+.btn-outline-warning {
+    color: #FFA500; /* Orange text */
+    border: 1px solid #FFA500; /* Orange border */
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.ant-picker-cell-today .ant-picker-cell-inner {
+  border: none !important; /* Remove a borda interna */
+}
+
+ 
+.btn-outline-warning:hover {
+    background-color: #4C428C; /* Orange background on hover */
+}
+ 
+
+.ant-picker-cell-selected .ant-picker-cell-inner {
+    background-color: #4C428C !important; /* Cor personalizada */
+    color: #FFFFFF !important;           /* Cor do texto */
+}
+ 
+
+ 
+
+ 

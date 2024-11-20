@@ -1,0 +1,175 @@
+/* Estilo do botão para expandir/recolher menu */
+.toggle-menu-button {
+    position: fixed;
+    top: 100px; /* Ajuste a posição conforme necessário */
+    height: 100vh; /* Ajuste a altura conforme necessário */
+    background-color: #D9D7CC;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1; /* Maior que o menu para garantir que fique acima */
+    transition: left 0.3s ease;
+    color: #4C428C;
+    padding: 10px;
+    border-radius: 0 5px 5px 0;
+}
+ 
+.toggle-menu-button.aberto {
+    left: 170px; /* Quando o menu está aberto */
+}
+ 
+.toggle-menu-button.fechado {
+    left: 0px; /* Quando o menu está fechado */
+}
+ 
+.toggle-menu-button:hover {
+    color: #D97C2B;
+}
+ 
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+ 
+ 
+.titleContainer{
+    color:#41a141;
+}
+ 
+.textContainer{
+    color: #000;
+}
+ 
+.container-card {
+    background-color: #ffffff00;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+ 
+.container-image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+ 
+.a-expand{
+    margin-left: 50%;
+    font-weight: 600;
+    color:#41a141;
+}
+.a-expand:hover{
+    color:#00C400;
+}
+ 
+.action-button {
+    background-color: #00C400;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block;
+}
+.action-buttonEdit {
+    margin-left: 20px;
+    background-color: #cf3d10;
+}
+.action-buttonEdit:hover{
+    background-color: #af2f07;
+}
+ 
+.action-button:hover {
+    background-color: #039103;
+}
+ 
+.profile-link {
+    display: block;
+    margin-top: 10px;
+    color: #00C400;
+    text-decoration: none;
+}
+ 
+.other-containers {
+    margin-top: 40px;
+}
+ 
+.other-containers h3 {
+    color: #00C400;
+    margin-bottom: 20px;
+}
+ 
+.other-containers ul {
+    list-style: none;
+}
+ 
+.other-containers ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+ 
+.other-containers ul li p {
+    margin: 5px 0;
+    color: #000;
+}
+ 
+.other-containers ul li a {
+    color: #41a141;
+    text-decoration: none;
+}
+ 
+.load-more {
+    display: block;
+    margin-top: 20px;
+    color: #41a141;
+    text-decoration: none;
+}
+ 
+/* Overlay do pop-up */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+ 
+/* Estilo do pop-up */
+.popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+ 
+.popup h3 {
+    color: #41a141;
+}
+ 
+.popup ul {
+    list-style: none;
+    padding: 0;
+}
+ 
+.popup ul li {
+    margin: 10px 0;
+    color: #000;
+}
+ 
+.close-button {
+    background-color: #00C400;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block;
+    border-radius: 5px;
+}
+ 

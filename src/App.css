@@ -1,0 +1,25 @@
+import {
+    BrowserRouter as Router, Route, Routes
+}
+
+from 'react-router-dom';
+import Header from './components/css/Header.css'; // Ajuste o caminho conforme necessário
+import HeaderTwo from './components/css/Headertwo.css'; // Ajuste o caminho conforme necessário
+import Footer from './components/Footer'; // Ajuste o caminho conforme necessário
+import LoginRegisterPage from './pages/LoginRegisterPage';
+import PedidoForm from './pages/PedidoForm';
+
+function App() {
+    return (
+        <Router>
+            <Headertwo /> {/* HeaderTwo em todas as páginas */}
+            <Routes>
+                <Route path="/LoginRegister" element={<LoginRegisterPage />} />
+                <Route path="/PedidoForm" element={<PedidoForm />} />
+            </Routes>
+            <Footer /> {/* Footer em todas as páginas */}
+        </Router>
+    );
+}
+
+export default App;

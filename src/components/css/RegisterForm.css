@@ -1,0 +1,27 @@
+.btn-noAccount{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #4C428C;
+}
+
+.h3-Register{
+    font-weight: 600;
+    margin-left: 120px;
+}
+
+.cadastro{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 57px;
+}
+
+/* ADICIONANDO MEDIA QUERIES */
+@media (max-width: 590px) {
+    .cadastro{
+        width: 300px;
+    }
+    .h3-Register{
+        font-weight: 600;
+        margin-left: 20px;
+    }
+}

@@ -1,0 +1,153 @@
+*{
+    font-family: sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%
+}
+
+.header {
+    z-index: 1;
+    background: linear-gradient(to right, #4C428C, #2C2A59); /* Degradê do roxo claro para o roxo escuro */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Alinha verticalmente todos os itens no header */
+}
+
+
+.header-content {
+    margin: 0 auto;
+    display: flex; /* Flexbox para o conteúdo */
+    justify-content: center;
+    align-items: center; /* Garante que o conteúdo também seja centralizado verticalmente */
+    flex: 1;
+    padding:10px
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+    padding-right: 20px;
+    margin-left: auto; /* Mantém os botões à direita */
+}
+
+.header-button {
+    position: relative; /* Necessário para posicionar o ::after */
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-button::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #9f6243; /* Cor da barra */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.header-button:hover::after,
+.header-button:focus::after {
+    width: 100%; /* Expande a barra para 100% da largura do botão */
+}
+
+.header-button:hover,
+.header-button:focus {
+    color: #9f6243; /* Muda a cor do texto ao passar o mouse ou ao focar no botão */
+}
+
+.logout-Img{
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    transition: width 0.3s ease;
+}
+
+.logout-Img:hover{
+    width: 50px;
+    height: 50px;
+}
+
+.custom-icon {
+    font-size: 0px; /* Altera o tamanho para 0px */
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    position: relative; /* Faz com que o menu seja posicionado relativo ao ícone */
+    display: inline-block;
+    color: white;
+}
+.custom-icon:hover
+{
+    color: #D97C2B;
+}
+
+.hamburger-menu {
+    position: absolute;
+    top: 90px; /* Ajuste conforme necessário */
+    right: 180px;
+    background-color: #4C428C;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; /* Garante que o menu fique por cima de outros elementos */
+}
+
+.hamburger-item {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+.hamburger-item:hover {
+    background-color: #2C2A59;
+}
+
+@media (max-width: 680px) {
+    .header-button{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 650px) {
+    .header-button{
+        display: none;
+    }
+    .header-p{
+        display: none;
+    }
+    .custom-icon{
+        font-size: 24px;
+    }
+    .logout-Img{
+        width: 40px;
+        height: 50px;
+    }
+    .hamburger-menu {
+        position: fixed; /* ou 'absolute' se for dentro de um contêiner */
+        top: 70px; /* ou ajuste conforme necessário */
+        right: 0; /* garante que o menu fique no lado direito */
+        margin-right: 0;
+    }
+}
+

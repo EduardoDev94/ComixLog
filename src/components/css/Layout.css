@@ -1,0 +1,50 @@
+:where(.css-dev-only-do-not-override-49qm).ant-layout-footer {
+    padding: 15px 15px !important;
+}
+
+.demo-logo-vertical {
+    padding: 16px;
+}
+
+.ant-layout-sider {
+    background: #4C428C; /* Ajusta o fundo da sidebar */
+}
+
+.ant-menu-item {
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    background: #4C428C;
+}
+
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #330a69 !important; /* Ajuste a cor de seleção */
+}
+
+/* Remover a borda azul */
+.ant-menu-item:focus {
+    outline: none; /* Remove o contorno azul padrão */
+    box-shadow: none; /* Remove sombras adicionais */
+}
+
+/* Ajustar a cor do hover para coincidir com a cor de seleção */
+.ant-menu-dark .ant-menu-item:hover {
+    background-color: #330a69; /* Mesma cor que o item selecionado */
+}
+
+/* Ajuste para o item selecionado */
+.ant-menu-dark .ant-menu-item-selected {
+    background-color: #330a69 !important; /* Mantém a cor de seleção */
+    color: #ffffff !important; /* Garante que o texto fique visível */
+}
+
+/* Ajuste para o estado inicial do menu */
+.ant-menu-item {
+    font-size: 16px;
+    background-color: #4C428C; /* Cor inicial */
+    color: #ffffff; /* Texto branco para contraste */
+}
+
+:where(.css-dev-only-do-not-override-49qm).ant-menu-dark,
+:where(.css-dev-only-do-not-override-49qm).ant-menu-dark > .ant-menu {
+    color: rgba(255, 255, 255, 0.65);
+    background: none !important; /* Remove o background */
+}

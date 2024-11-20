@@ -1,0 +1,44 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+    
+  .footer {
+    background: linear-gradient(to right, #4C428C, #2C2A59);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 10px
+  }
+    
+  .footer-logo {
+    position: absolute;
+    left: 20px; /* Mantém a imagem no canto esquerdo */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajuste preciso para centralizar */
+    width: 155px;
+    height: 79px; /* Ajuste o tamanho conforme necessário */
+  }
+    
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o restante do conteúdo */
+    flex: 1;
+  }
+    
+  @media (max-width: 650px) {
+    .footer p{
+      font-size: small;
+    }
+    .footer-logo{
+      display: none;
+    }
+  }
