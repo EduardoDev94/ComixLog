@@ -15,6 +15,7 @@ import Tp from '../assets/guindaste-portuario.png';
 import Se from '../assets/suporte-ao-cliente.png';
 
 import '@fortawesome/fontawesome-free/css/all.css';
+console.log('oi')
 
 interface Card {
     id: number;
