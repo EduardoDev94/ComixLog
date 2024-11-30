@@ -33,8 +33,7 @@ const ContainerListByUser: React.FC = () => {
   const { user } = useAuth();
   const [containers, setContainers] = useState<Container[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const [selectedUserAllocation, setSelectedUserAllocation] = useState<AlocacaoUsuario | null>(null);
-  const [selectedContainerId, setSelectedContainerId] = useState<string | null>(null);
+  const [selectedContainer, setSelectedContainer] = useState<Container | null>(null);
 
   useEffect(() => {
     axios
@@ -49,17 +48,19 @@ const ContainerListByUser: React.FC = () => {
         setContainers(userContainers);
       })
       .catch((error) => {
-        console.error("Erro ao buscar containers:", error);
+        console.error('Erro ao buscar containers:', error);
       });
   }, [user?._id]);
 
-  const handleShowUserAllocation = (usuario: AlocacaoUsuario, containerId: string) => {
-    setSelectedUserAllocation(usuario);
-    setSelectedContainerId(containerId);
+  const handleShowContainerDetails = (container: Container) => {
+    setSelectedContainer(container);
     setShowModal(true);
   };
 
-  const handleCloseModal = () => setShowModal(false);
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setSelectedContainer(null);
+  };
 
   const removerProduto = async (containerId: string, nomeDoProduto: string) => {
     try {
@@ -72,28 +73,63 @@ const ContainerListByUser: React.FC = () => {
           },
         }
       );
-
+  
+      // Atualizar o estado local dos containers
       setContainers((prevContainers) =>
-        prevContainers
-          .map((container) =>
-            container.id === containerId
-              ? {
+        prevContainers.map((container) =>
+          container.id === containerId
+            ? {
                 ...container,
                 usuariosAlocados: container.usuariosAlocados.filter(
                   (alocacao) => alocacao.nomeProduto !== nomeDoProduto
                 ),
               }
-              : container
-          )
-          .filter((container) => container.usuariosAlocados.length > 0)
+            : container
+        )
       );
-
+  
+      // Verificar se o produto removido estava no container selecionado e se sim, removê-lo do modal
+      if (selectedContainer) {
+        setSelectedContainer((prevSelectedContainer) => {
+          if (prevSelectedContainer?.id === containerId) {
+            return {
+              ...prevSelectedContainer,
+              usuariosAlocados: prevSelectedContainer.usuariosAlocados.filter(
+                (alocacao) => alocacao.nomeProduto !== nomeDoProduto
+              ),
+            };
+          }
+          return prevSelectedContainer;
+        });
+      }
+      
+      await atualizarContainers()
+      handleCloseModal()
       alert('Produto removido com sucesso');
-      setShowModal(false); // Fecha o modal após o alert
     } catch (error) {
       console.error('Erro ao remover produto:', error);
     }
   };
+  
+
+    // Função para atualizar os containers
+    const atualizarContainers = async () => {
+      try {
+        const response = await axios.get<Container[]>(
+          `https://webapicomixlog-adbrgqe8d4fyfkh8.brazilsouth-01.azurewebsites.net/api/Containers/user/${user?._id}`
+        );
+        const userContainers = response.data.map((container) => ({
+          ...container,
+          usuariosAlocados: container.usuariosAlocados.filter(
+            (alocacao) => alocacao.usuarioId === user?._id
+          ),
+        }));
+        setContainers(userContainers);
+      } catch (error) {
+        console.error('Erro ao atualizar containers:', error);
+      }
+    };
+  
 
   return (
     <div>
@@ -126,22 +162,14 @@ const ContainerListByUser: React.FC = () => {
                     <FaTemperatureLow className="icon" style={{ marginRight: '10px' }} />
                     <strong>Resfriado: </strong> {container.resfriado ? 'Sim' : 'Não'}
                   </ListGroup.Item>
-                  <ListGroup.Item className="d-flex align-items-center">
-                    <FaClipboardCheck className="icon" style={{ marginRight: '10px' }} />
-                    <strong>Status: </strong> {container.status === 0 ? 'Transporte' : container.status === 1 ? 'Lotado' : container.status === 2 ? 'Vazio' : 'Entregue'}
-                  </ListGroup.Item>
-                  <ListGroup.Item className="d-flex align-items-center">
-                    <FaCalendarAlt className="icon" style={{ marginRight: '10px' }} />
-                    <strong>Embarque: </strong> {container.dataDeEmbarque}
-                  </ListGroup.Item>
                 </ListGroup>
                 {container.usuariosAlocados.length > 0 && (
                   <Button
                     variant="primary"
                     className="mt-3 Vmore"
-                    onClick={() => handleShowUserAllocation(container.usuariosAlocados[0], container.id)}
+                    onClick={() => handleShowContainerDetails(container)}
                   >
-                    Ver Detalhes
+                    Ver Produtos
                   </Button>
                 )}
               </Card.Body>
@@ -150,35 +178,43 @@ const ContainerListByUser: React.FC = () => {
         ))}
       </div>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Detalhes da Alocação</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {selectedUserAllocation && (
-            <div>
-              <h5>Nome do Produto: {selectedUserAllocation.nomeProduto}</h5>
-              <p>Descrição do Produto: {selectedUserAllocation.descricaoDoProduto}</p>
-              <p>Peso do Produto: {selectedUserAllocation.pesoDoProduto} kg</p>
-              <p>Características da Embalagem: {selectedUserAllocation.caracteristicaDaEmbalagem}</p>
-              <p>Quantidade Alocada: {selectedUserAllocation.quantidadeAlocada} m³</p>
-              <p>Valor da Alocação: R$ {selectedUserAllocation.precoTotal}</p>
-              <p>Valor de Exportação: R$ {selectedUserAllocation.valorDeExportacao}</p>
-              <Button
-                variant="danger"
-                onClick={() => removerProduto(selectedContainerId!, selectedUserAllocation.nomeProduto)}
-              >
-                Remover Produto
-              </Button>
-            </div>
-          )}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Fechar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {selectedContainer && (
+        <Modal show={showModal} onHide={handleCloseModal} size="lg">
+          <Modal.Header closeButton>
+            <Modal.Title>Detalhes dos Produtos</Modal.Title>
+          </Modal.Header>
+          <Modal.Body style={{ maxHeight: '600px', overflowY: 'auto' }}>
+            <ListGroup>
+              {selectedContainer.usuariosAlocados.map((produto) => (
+                <ListGroup.Item key={produto.nomeProduto}
+                style={{ marginBottom: '15px' }}>
+                  <div>
+                    <h5>Nome do Produto: {produto.nomeProduto}</h5>
+                    <p>Peso do Produto: <strong>  {produto.pesoDoProduto}  kg</strong></p>
+                    <p>Descrição do Produto:<strong> {produto.descricaoDoProduto} </strong> </p> 
+                    <p>Quantidade Alocada: <strong>  {produto.quantidadeAlocada} m³</strong> </p>
+                    <p>Valor da Alocação: <strong> R$  {produto.precoTotal}</strong></p>
+                    <p>Valor de Exportação:  <strong> R$ {produto.valorDeExportacao}</strong></p>
+                    <p>Características da Embalagem: <strong> {produto.caracteristicaDaEmbalagem} </strong> </p>
+
+                    <Button
+                      variant="danger"
+                      onClick={() => removerProduto(selectedContainer.id, produto.nomeProduto)}
+                    >
+                      Remover
+                    </Button>
+                  </div>
+                </ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Fechar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      )}
     </div>
   );
 };
