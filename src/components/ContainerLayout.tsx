@@ -94,6 +94,7 @@ const ContainerLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
                     />
                 </div>
                 <Menu
+                    style={{ background: '#4C428C'}}
                     theme="dark"
                     mode="inline"
                     selectedKeys={[getSelectedKey()]} // Define o item selecionado dinamicamente
