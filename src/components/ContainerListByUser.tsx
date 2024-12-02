@@ -156,7 +156,7 @@ const ContainerListByUser: React.FC = () => {
                   </ListGroup.Item>
                   <ListGroup.Item className="d-flex align-items-center">
                     <FaBox className="icon" style={{ marginRight: '10px' }} />
-                    <strong>Capacidade Atual: </strong> {container.capacidadeAtual} m³
+                    <strong>Capacidade Disponível: </strong> {container.capacidadeAtual} m³
                   </ListGroup.Item>
                   <ListGroup.Item className="d-flex align-items-center">
                     <FaTemperatureLow className="icon" style={{ marginRight: '10px' }} />

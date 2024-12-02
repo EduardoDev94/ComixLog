@@ -13,7 +13,7 @@ const ContainerCard: React.FC<ContainerCardProps> = ({ container }) => {
     <div style={{ border: '1px solid #ddd', padding: '10px', margin: '10px', borderRadius: '5px' }}>
       <h3>Preço: {preco}</h3>
       <p>Capacidade Total: {capacidadeTotal} m³</p>
-      <p>Capacidade Atual: {capacidadeAtual} m³</p>
+      <p>Capacidade Disponível: {capacidadeAtual} m³</p>
     </div>
   );
 };

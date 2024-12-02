@@ -68,7 +68,7 @@ const ContainerCard: React.FC<ContainerCardProps> = ({ container }) => {
         </div>
         <div className="info-row">
           <FaBoxOpen className="icon" />
-          <p className="property-name">Capacidade Atual:</p>
+          <p className="property-name">Capacidade Disponível:</p>
           <span>{capacidadeAtual} m³</span>
         </div>
         <div className="info-row">

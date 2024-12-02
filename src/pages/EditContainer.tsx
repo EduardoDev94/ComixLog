@@ -141,7 +141,7 @@ const EditContainer: React.FC = () => {
                         </div>
 
                         <div className="col-md-6">
-                            <label className="form-label label-gray">Capacidade Atual*</label>
+                            <label className="form-label label-gray">Capacidade Disponível*</label>
                             <input
                                 type="text"
                                 value={capacidadeAtual}
