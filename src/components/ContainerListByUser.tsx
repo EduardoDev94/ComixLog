@@ -4,7 +4,7 @@ import ImgContainer from '../assets/container.jpg';
 import ImgContainerRef from '../assets/ContainerRef.jpeg';
 import { useAuth } from '../context/AuthContext';
 import { Modal, Button, Card, ListGroup } from 'react-bootstrap';
-import { FaDollarSign, FaCube, FaTemperatureLow, FaBox, FaCalendarAlt, FaClipboardCheck } from 'react-icons/fa';
+import { FaDollarSign, FaCube, FaTemperatureLow, FaBox } from 'react-icons/fa';
 import './css/ContainerListByUser.css';
 
 interface Container {
